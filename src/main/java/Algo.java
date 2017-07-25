@@ -14,11 +14,13 @@ public class Algo {
      Solution below assume that charset is ASCII
      **/
     public static boolean allUniqueChars(String str) {
+        if (str == null || str.length() == 0) return false;
+        if (str.length() == 1) return true;
+
         boolean[] match = new boolean[256];
 
         for (int i = 0; i < str.length(); i++) {
             int val = str.charAt(i);
-            System.out.println(val);
             if (match[val] == true) return false;
             match[val] = true;
         }
