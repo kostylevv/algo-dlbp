@@ -26,4 +26,23 @@ public class Algo {
         }
         return true;
     }
+
+    /**  CCI 1.2
+     Write code to reverse a C-Style String.
+     (C-String means that “abcd” is represented as
+     five characters, including the null character.)
+     **/
+    public static String revString(String s) {
+        if (s == null) return null;
+        if (s.length() <= 1) return s;
+
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length/2; i++) {
+            char tmp = chars[i];
+            chars[i] = chars[chars.length-i-1];
+            chars[chars.length-i-1] = tmp;
+        }
+
+        return new String(chars);
+    }
 }
