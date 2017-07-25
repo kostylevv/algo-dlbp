@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by vkostylev on 25/07/2017.
  */
@@ -44,5 +46,39 @@ public class Algo {
         }
 
         return new String(chars);
+    }
+
+    /** CCI 1.3
+     Design an algorithm and write code to remove the duplicate characters
+     in a string without using any additional bu er.
+     NOTE: One or two additional variables are ok.
+     An extra copy of the array is not.
+     **/
+    public static String rmDuplicateChars(String str) {
+        if (str == null) return null;
+        if (str.length() <= 1) return str;
+
+        char[] s = str.toCharArray();
+        int len = s.length;
+        int tail = 1; //tail of already found characters part of the string
+
+
+        for (int i = 1; i < len; ++i) { //loop through all characters
+            int j;
+            for (j = 0; j < tail; ++j) {  //compare current character with
+                // all found characters
+                if (s[i] == s[j]) break; // if it was already found - skip it
+            }
+            if (j == tail) { //if we are hear, this char wasn't found previously
+                // so we add it to the appropriate part of the string
+                // and adjust tail accordingly
+                s[tail] = s[i];
+                ++tail;
+            }
+
+
+        }
+
+        return new String(Arrays.copyOf(s, tail));
     }
 }
