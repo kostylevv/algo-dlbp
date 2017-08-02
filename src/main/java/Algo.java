@@ -81,4 +81,94 @@ public class Algo {
 
         return new String(Arrays.copyOf(s, tail));
     }
+
+
+    /**
+     * CCI 1.4
+     *
+     * Write a method to decide if two strings are anagrams or not.
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+
+    public static boolean isAnagram(String a, String b) {
+        if (a == null || b == null) return false;
+        if (a.length() == 0 || b.length() == 0) return false;
+        if (a.length() != b.length()) return false;
+
+        int[] chars = new int[256];
+        int numUniqueChars = 0;
+        int uniqueCharsInB = 0;
+
+        char[] compChars = a.toCharArray();
+
+        for (char c : compChars) {
+
+            if (chars[c] == 0) {
+                numUniqueChars++;
+            }
+            chars[c]++;
+        }
+
+        for (int i = 0; i < b.length(); i++) {
+            int t = b.charAt(i);
+
+            if (chars[t] == 0) {
+                return false;
+            }
+
+            chars[t]--;
+
+            if (chars[t] == 0) {
+                uniqueCharsInB++;
+
+                if (numUniqueChars == uniqueCharsInB) {
+                    return (i == b.length()-1);
+                }
+
+            }
+
+        }
+
+        return false;
+    }
+
+    /**
+     * CCI 1.5 Write a method to replace all spaces in a string with ‘%20’.
+     */
+
+    public static String replaceCharWithString(String str, char c, String replacement) {
+
+        int numOfCharsToReplace = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == c) numOfCharsToReplace++;
+        }
+
+        char[] repl = replacement.toCharArray();
+        int resize = str.length() - numOfCharsToReplace + (numOfCharsToReplace*repl.length);
+
+        char[] result = new char[resize];
+
+        for (int i = 0, j = 0; i < str.length(); i++, j++) {
+            char curChar = str.charAt(i);
+            if (curChar == c) {
+                for (int k = 0; k < repl.length; k++) {
+                    result[j] = repl[k];
+                    if (k + 1 < repl.length) j++;
+                }
+            } else {
+                result[j] = curChar;
+            }
+
+        }
+
+        return new String(result);
+
+
+
+    }
+
 }

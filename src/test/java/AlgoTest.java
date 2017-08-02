@@ -34,8 +34,23 @@ public class AlgoTest {
         assertEquals("RMDuplicates: caaaaaaaaaaaaaaaaa is ca", "ca", Algo.rmDuplicateChars("caaaaaaaaaaaaaaaaa"));
         assertEquals("RMDuplicates: caaaaaaaaaaaaaaaaac is ca", "ca", Algo.rmDuplicateChars("caaaaaaaaaaaaaaaaac"));
         assertEquals("RMDuplicates: aaaaaaaaabaaaaaaaa is ab", "ab", Algo.rmDuplicateChars("aaaaaaaaabaaaaaaaa"));
+    }
 
+    @org.junit.Test
+    public void anagram() throws Exception {
+        assertFalse(Algo.isAnagram("",""));
+        assertTrue(Algo.isAnagram("abch","hacb"));
+        assertFalse(Algo.isAnagram("abcc","abcd"));
+        assertFalse(Algo.isAnagram(null,null));
+        assertFalse(Algo.isAnagram("abchf","hacb"));
+        assertTrue(Algo.isAnagram("f","f"));
+        assertFalse(Algo.isAnagram("g","b"));
+    }
 
+    @org.junit.Test
+    public void replaceCharWithString() throws Exception {
+        assertEquals("Rm '_' with '!UNDERSCORE!' ", "ab!UNDERSCORE!cd!UNDERSCORE!g",
+                Algo.replaceCharWithString("ab_cd_g",'_',"!UNDERSCORE!"));
 
     }
 
