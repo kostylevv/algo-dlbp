@@ -166,8 +166,22 @@ public class Algo {
         }
 
         return new String(result);
+    }
 
+    /**
+     * FizzBuzz
+     */
 
+    public static String fizzBuzz(int n) {
+        if (n == 0) return null;
+
+        StringBuilder sb = new StringBuilder();
+
+        if (n % 3 == 0) sb.append("fizz");
+        if (n % 5 == 0) sb.append("buzz");
+        if (sb.length() == 0) sb.append(n);
+
+        return sb.toString();
 
     }
 

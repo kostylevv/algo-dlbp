@@ -54,4 +54,32 @@ public class AlgoTest {
 
     }
 
+    @org.junit.Test
+    public void fizzBuzz() throws Exception {
+        assertEquals("3 % 3 == 0", "fizz",
+                Algo.fizzBuzz(3));
+        assertEquals("5 % 5 == 0", "buzz",
+                Algo.fizzBuzz(5));
+        assertEquals("6 % 3 == 0", "fizz",
+                Algo.fizzBuzz(6));
+        assertEquals("10 % 5 == 0", "buzz",
+                Algo.fizzBuzz(10));
+        assertEquals("33 % 3 == 0", "fizz",
+                Algo.fizzBuzz(33));
+        assertEquals("25 % 5 == 0", "buzz",
+                Algo.fizzBuzz(25));
+        assertEquals("15 % 3 == 0 && 15 % 5 == 0", "fizzbuzz",
+                Algo.fizzBuzz(15));
+        assertEquals("45 % 3 == 0 && 45 % 5 == 0", "fizzbuzz",
+                Algo.fizzBuzz(45));
+        assertEquals("0 is not allowed", null,
+                Algo.fizzBuzz(0));
+        assertEquals("1 % 3 != 0 && 1 % 5 != 0", "1",
+                Algo.fizzBuzz(1));
+
+
+
+    }
+
+
 }
