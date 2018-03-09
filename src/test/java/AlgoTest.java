@@ -80,6 +80,10 @@ public class AlgoTest {
 
 
     }
+    @org.junit.Test
+    public void intToPhone() {
+        assertEquals("(123) 456-7890", Algo.createPhoneNumber(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}));
+    }
 
 
 }

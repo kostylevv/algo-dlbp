@@ -1,3 +1,4 @@
+import java.lang.annotation.Documented;
 import java.util.Arrays;
 
 /**
@@ -78,7 +79,6 @@ public class Algo {
 
 
         }
-
         return new String(Arrays.copyOf(s, tail));
     }
 
@@ -184,5 +184,36 @@ public class Algo {
         return sb.toString();
 
     }
+
+    /**
+     * int -> phone
+     */
+
+    public static String createPhoneNumber(int[] numbers) {
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < 10; i++) {
+                switch (i) {
+                    case 0:
+                        sb.append("(");
+                        sb.append(numbers[i]);
+                        break;
+                    case 2:
+                        sb.append(numbers[i]);
+                        sb.append(") ");
+                        break;
+                    case 5:
+                        sb.append(numbers[i]);
+                        sb.append("-");
+                        break;
+                    default:
+                        sb.append(numbers[i]);
+                        break;
+                }
+            }
+            return sb.toString();
+
+    }
+
+
 
 }
